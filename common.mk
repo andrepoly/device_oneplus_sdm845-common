@@ -23,7 +23,7 @@ $(call inherit-product, vendor/oneplus/sdm845-common/sdm845-common-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-ssos
+    $(LOCAL_PATH)/overlay-octavi
 
 PRODUCT_PACKAGES += \
     OnePlusIconShapeCircleOverlay \
@@ -176,6 +176,13 @@ PRODUCT_PACKAGES += \
 # OPCam priv-app Whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-opcam.xml:system/etc/permissions/privapp-permissions-opcam.xml
+    
+# OnePlus
+PRODUCT_PACKAGES += \
+    oneplus-fwk.oneplus_sdm845
+
+PRODUCT_BOOT_JARS += \
+    oneplus-fwk.oneplus_sdm845
 
 # Power
 PRODUCT_PACKAGES += \
@@ -210,7 +217,8 @@ PRODUCT_BOOT_JARS += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.oneplus_sdm845
+    lineage.touch@1.0-service.oneplus_sdm845 \
+    TouchGestures
 
 # tri-state-key
 PRODUCT_PACKAGES += \
@@ -241,6 +249,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
 
-# ShapeShift specific properties
+# OctaviOS specific properties
 PRODUCT_PRODUCT_PROPERTIES += \
-  ro.ssos.cpu=SDM845
+  ro.octavi.cpu=SDM845
